@@ -4,12 +4,12 @@ using FluentAssertions;
 using Orchid.Contract.Payload;
 using Xunit;
 
-namespace Orchid.UnitTests.Contract;
+namespace Orchid.UnitTest.Contract;
 
 /// <summary>
 /// <see cref="KeyExchangePayload"/>의 결정론적 JSON 직렬화 및 역직렬화 무결성을 검증하는 테스트입니다.
 /// </summary>
-public sealed class KeyExchangePayloadSerializationTests
+public sealed class KeyExchangePayloadSerializationTest
 {
     [Fact]
     public void KeyExchangePayload_Should_Serialize_And_Deserialize_Deterministically()

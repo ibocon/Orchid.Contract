@@ -3,9 +3,9 @@ using FluentAssertions;
 using Orchid.Contract.Payload;
 using Xunit;
 
-namespace Orchid.UnitTests.Contract;
+namespace Orchid.UnitTest.Contract;
 
-public sealed class EncryptedPayloadSerializationTests
+public sealed class EncryptedPayloadSerializationTest
 {
     [Fact]
     public void EncryptedPayload_Should_Serialize_And_Deserialize_Deterministically()
