@@ -16,10 +16,10 @@ public sealed class ContractPurityTest
     /// Contract ?쇱씠釉뚮윭由ш? ?붾（?????ㅻⅨ ?꾨줈?앺듃???섏〈?섏? ?딅뒗吏 寃利앺빀?덈떎.
     /// </summary>
     [Fact]
-    public void Contract_ShouldNotDependOn_InternalProjects()
+    public void ContractShouldNotDependOnInternalProjects()
     {
         // Given
-        var contractAssembly = typeof(Orchid.Contract.Payload.EncryptedPayload).Assembly;
+        System.Reflection.Assembly contractAssembly = typeof(Orchid.Contract.Payload.EncryptedPayload).Assembly;
 
         // When
         // ??Orchid.Contract???붾（????? ?꾨줈?앺듃???섏〈?댁꽌?????⑥쓣 媛뺤젣

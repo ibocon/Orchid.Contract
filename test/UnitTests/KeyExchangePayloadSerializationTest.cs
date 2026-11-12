@@ -12,12 +12,12 @@ namespace Orchid.UnitTest.Contract;
 public sealed class KeyExchangePayloadSerializationTest
 {
     [Fact]
-    public void KeyExchangePayload_Should_Serialize_And_Deserialize_Deterministically()
+    public void KeyExchangePayloadShouldSerializeAndDeserializeDeterministically()
     {
         // Given
         byte[] publicKey = new byte[65];
         RandomNumberGenerator.Fill(publicKey);
-        var original = new KeyExchangePayload(
+        KeyExchangePayload original = new KeyExchangePayload(
             Guid.NewGuid(),
             publicKey,
             "ECDH-P256",
@@ -25,7 +25,7 @@ public sealed class KeyExchangePayloadSerializationTest
 
         // When
         string json = JsonSerializer.Serialize(original);
-        var deserialized = JsonSerializer.Deserialize<KeyExchangePayload>(json);
+        KeyExchangePayload? deserialized = JsonSerializer.Deserialize<KeyExchangePayload>(json);
 
         // Then
         deserialized.Should().NotBeNull();

@@ -8,10 +8,10 @@ namespace Orchid.UnitTest.Contract;
 public sealed class EncryptedPayloadSerializationTest
 {
     [Fact]
-    public void EncryptedPayload_Should_Serialize_And_Deserialize_Deterministically()
+    public void EncryptedPayloadShouldSerializeAndDeserializeDeterministically()
     {
         // Given
-        var original = new EncryptedPayload(
+        EncryptedPayload original = new EncryptedPayload(
             Guid.NewGuid(),
             [1, 2, 3, 4],
             [5, 6, 7],
@@ -20,8 +20,8 @@ public sealed class EncryptedPayloadSerializationTest
             DateTimeOffset.UtcNow);
 
         // When
-        var json = JsonSerializer.Serialize(original);
-        var deserialized = JsonSerializer.Deserialize<EncryptedPayload>(json);
+        string json = JsonSerializer.Serialize(original);
+        EncryptedPayload? deserialized = JsonSerializer.Deserialize<EncryptedPayload>(json);
 
         // Then
         deserialized.Should().NotBeNull();
@@ -29,10 +29,10 @@ public sealed class EncryptedPayloadSerializationTest
     }
 
     [Fact]
-    public void EncryptedPayload_With_Empty_Bytes_Should_Preserve_Empty_Arrays()
+    public void EncryptedPayloadWithEmptyBytesShouldPreserveEmptyArrays()
     {
         // Given
-        var emptyPayload = new EncryptedPayload(
+        EncryptedPayload emptyPayload = new EncryptedPayload(
             Guid.NewGuid(),
             [],
             [],
@@ -41,8 +41,8 @@ public sealed class EncryptedPayloadSerializationTest
             DateTimeOffset.UtcNow);
 
         // When
-        var json = JsonSerializer.Serialize(emptyPayload);
-        var deserialized = JsonSerializer.Deserialize<EncryptedPayload>(json);
+        string json = JsonSerializer.Serialize(emptyPayload);
+        EncryptedPayload? deserialized = JsonSerializer.Deserialize<EncryptedPayload>(json);
 
         // Then
         deserialized.Should().NotBeNull();
